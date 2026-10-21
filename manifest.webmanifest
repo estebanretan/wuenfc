@@ -1,0 +1,9 @@
+{
+  "name": "CELSIUS · Portal de Garantías",
+  "short_name": "Celsius Garantías",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f3f7fb",
+  "theme_color": "#092f4c",
+  "lang": "es"
+}
