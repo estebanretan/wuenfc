@@ -1,8 +1,8 @@
-# CELSIUS — Portal de Garantías V9 (demo GitHub Pages)
+# CELSIUS — Portal de Garantías V10 (demo GitHub Pages)
 
 Versión de **demostración con datos ficticios**. No contiene autenticación verdadera, almacenamiento persistente, envío de mensajes ni API de garantías. Los tres accesos desde el inicio son: Cliente, Gestor y Administrador. **No debe usarse para aceptar registros o evidencias reales**.
 
-## Cambios V9
+## Cambios V10
 
 - **Crear cuenta primero**; solo razón social, correo, teléfono, contraseña y confirmación; contraseña mínima de 10 caracteres, con botón para revelar la escritura.
 - Sin requisito de confirmación de correo en el diseño propuesto. **En producción se exigirá verificar teléfono** y utilizar recuperación por código OTP de WhatsApp; todavía no está integrada.
@@ -26,3 +26,18 @@ Versión de **demostración con datos ficticios**. No contiene autenticación ve
 API backend, PostgreSQL, controles de acceso por usuario y por expediente, seguridad contra consultas de terceros, identidad por correo o teléfono con verificación de posesión del teléfono, recuperación OTP por WhatsApp, políticas de contraseña, envío de correo y WhatsApp real, carga privada y antivirus de archivos, firmas y consentimiento, auditoría inmutable, backups, pruebas de seguridad y exports del servidor con permisos. Eliminar todos los accesos de prueba.
 
 **Nota de seguridad:** quitar la verificación de correo no implica que el usuario deba entrar sin ningún mecanismo de verificación; Celsius ha solicitado códigos de WhatsApp para autenticar y recuperar contraseñas. La protección antiabuso, verificación de teléfono y políticas de identidad deben implementarse en el backend.
+
+## Cambios de la V10 — formato técnico
+
+- Primera pantalla: elegir **Crear cuenta** o **Iniciar sesión**; después se despliega el formulario correspondiente.
+- Registro e inicio de sesión: campos de contraseña nativos ocultos por defecto, con ojo para alternar visibilidad. Los testers permanecen disponibles para revisión exclusivamente ficticia.
+- Estado público: en la línea de evolución **Rechazada sustituye Aprobada** solo si corresponde al caso.
+- Formulario: primera sección identificada como **Información del equipo**, sin título externo «Refacción 1»; cada refacción adicional tiene su sección completa.
+- Equipo: marca, modelo, modelos de condensadora/evaporadora/compresor, serie, folio de factura, fechas de facturación, compra, instalación y falla.
+- Refacción: número de parte, referencia al modelo, respuestas **Sí/No** a 14 preguntas técnicas, mediciones de presiones/voltajes/temperaturas/amperaje y explicación del técnico. Se muestran detalles condicionales para kit, fuga y base; deben validarse condicionalmente en producción.
+- Evidencia: carga múltiple de documentos, fotos y videos más apartado de factura de mantenimiento. La selección de archivos es local en la demostración; no se suben a ningún servidor.
+- Entrega: modalidad única **Recolección sucursal Culiacán** (sin paquetería seleccionable).
+- Firmas de entrega: disponibles solo en expedientes con estado **Cerrada**, primero personal Celsius y después cliente. Son confirmaciones de simulación, no firmas electrónicas legalmente instrumentadas.
+
+### Pendientes antes de producción
+Se necesitan validaciones técnicas condicionales, fecha de reporte/folio generado desde backend, catálogos y vínculos por modelo, expediente con adjuntos privados, firma electrónica de entrega con trazabilidad, almacenamiento seguro y autorizaciones reales. No se deben introducir datos personales ni contraseñas reales en esta demo pública.
