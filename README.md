@@ -1,43 +1,28 @@
-# CELSIUS — Portal de Garantías V10 (demo GitHub Pages)
+# CELSIUS Garantías V11 — Ajustes de solicitud y reportes
 
-Versión de **demostración con datos ficticios**. No contiene autenticación verdadera, almacenamiento persistente, envío de mensajes ni API de garantías. Los tres accesos desde el inicio son: Cliente, Gestor y Administrador. **No debe usarse para aceptar registros o evidencias reales**.
+Versión navegable de evaluación con información simulada. **No usar para registros ni expedientes reales.**
 
-## Cambios V10
+## Modificaciones principales
 
-- **Crear cuenta primero**; solo razón social, correo, teléfono, contraseña y confirmación; contraseña mínima de 10 caracteres, con botón para revelar la escritura.
-- Sin requisito de confirmación de correo en el diseño propuesto. **En producción se exigirá verificar teléfono** y utilizar recuperación por código OTP de WhatsApp; todavía no está integrada.
-- Cliente: estado **Cerrada** en lugar de Entregada; relación equipo y modelo, conformidad únicamente al final, evidencia única de múltiples documentos/fotos/videos, recolección en sucursal Culiacán.
-- Estados principales visibles: **Revisión, Esperando info del cliente, Aprobada, Rechazada, Cerrada**. La logística de entrega seguirá llevándose internamente sin necesitar estados públicos adicionales.
-- Gestor: panel operativo y revisión de expedientes. Administrador: lo anterior más Colaboradores y **Supervisión de gestor**.
-- Dashboard ejecutivo: gráficas anuales, mensuales, por estado (anillo), por marca, por región, por modelo, histograma de tiempos, causas de rechazo, empresas consolidadas y carga de gestores. **Los datos interanuales (2024–2026) son ilustrativos**; no proceden de una base histórica de Celsius.
-- Expedientes paginados en bloques de 20. Nota de rechazo visible en el expediente. Botones **Mi cuenta** y **Cerrar sesión** en el encabezado, también en móvil.
-- Exportar **Excel (.xlsx)** con varias hojas, **PowerPoint (.pptx)** y **PDF** (diálogo de impresión/guardar como PDF); CSV alternativo. Excel y PPTX requieren que el navegador pueda descargar sus respectivas bibliotecas externas; no ejecutan la exportación desde un servidor.
-- Directorio de cuentas, grupos de empresas, y 30 casos para el tester Cliente, con decenas de casos para los perfiles internos. Todos los cambios son temporales.
+- Menú de acceso con botones verticales **Crear cuenta** y **Iniciar sesión**; accesos de evaluación por fuera del diseño principal.
+- **Una solicitud = una refacción**. No existe botón para agregar otra ni guardar borrador.
+- Sección 02: Marca, modelos de condensadora, evaporadora y compresor (opcionales), serie obligatoria; identificación de pieza/número de parte; fechas y factura plegables.
+- Sección 03: exclusivamente preguntas técnicas Sí/No, mediciones numéricas y diagnóstico del técnico, sin duplicar los datos de pieza.
+- Modalidad: **recolección en sucursal** seleccionable entre Culiacán, Mazatlán, Hermosillo y Mexicali. No existe opción de paquetería.
+- Administrador: pestaña **Centro de reportes**, independiente del Dashboard operativo, con filtros año/mes, gráficos, tablas e indicadores.
+- Supervisión de gestor: tablero propio con filtro por gestor/año/mes, gráficas e información detallada.
+- Exportaciones sobre el periodo **actualmente seleccionado**: Excel multipestaña, PowerPoint con métricas y visualizaciones de categorías y PDF mediante impresión con gráficos.
 
-## Publicación
+## Precisión de las exportaciones
 
-1. Mantener copia de esta demo en una rama/repositorio de **pruebas**; subir la estructura de carpetas conservando `/assets`.
-2. En GitHub → Settings → Pages publicar `/ (root)` de la rama seleccionada.
-3. Si se utiliza dominio personalizado, configurarlo con DNS correcto.
-4. No cargar datos reales, secretos o credenciales en el repositorio público.
+Excel utiliza SheetJS por CDN y exporta las hojas Resumen, Garantías, Refacciones, Estados, Marcas, Regiones, Modelos, Gestores, Meses, Tiempos, Cuentas, Agrupaciones y Colaboradores. PowerPoint usa PptxGenJS por CDN y construye diapositivas de resumen, barras de las distribuciones y expedientes. PDF abre una ventana de informe filtrado, lista para imprimir/guardar como PDF. **Los filtros deben elegirse en la vista antes de descargar.** Los datos de 2024–2025 de los gráficos históricos del dashboard operativo son ilustrativos; las solicitudes detalladas disponibles corresponden al año 2026.
 
-## Por implementar antes de producción
+Las bibliotecas de Excel y PowerPoint requieren conexión de internet. Los reportes no son copias de respaldo oficiales ni certifican datos de producción.
 
-API backend, PostgreSQL, controles de acceso por usuario y por expediente, seguridad contra consultas de terceros, identidad por correo o teléfono con verificación de posesión del teléfono, recuperación OTP por WhatsApp, políticas de contraseña, envío de correo y WhatsApp real, carga privada y antivirus de archivos, firmas y consentimiento, auditoría inmutable, backups, pruebas de seguridad y exports del servidor con permisos. Eliminar todos los accesos de prueba.
+## GitHub Pages
 
-**Nota de seguridad:** quitar la verificación de correo no implica que el usuario deba entrar sin ningún mecanismo de verificación; Celsius ha solicitado códigos de WhatsApp para autenticar y recuperar contraseñas. La protección antiabuso, verificación de teléfono y políticas de identidad deben implementarse en el backend.
+Subir el contenido de este ZIP (no el ZIP como único archivo) a `estebanretan/wuenfc` en la rama principal, conservando `index.html`, `assets/`, `sql/` y `docs/`. No alterar el dominio/DNS ya configurados.
 
-## Cambios de la V10 — formato técnico
+## Pendientes de producción
 
-- Primera pantalla: elegir **Crear cuenta** o **Iniciar sesión**; después se despliega el formulario correspondiente.
-- Registro e inicio de sesión: campos de contraseña nativos ocultos por defecto, con ojo para alternar visibilidad. Los testers permanecen disponibles para revisión exclusivamente ficticia.
-- Estado público: en la línea de evolución **Rechazada sustituye Aprobada** solo si corresponde al caso.
-- Formulario: primera sección identificada como **Información del equipo**, sin título externo «Refacción 1»; cada refacción adicional tiene su sección completa.
-- Equipo: marca, modelo, modelos de condensadora/evaporadora/compresor, serie, folio de factura, fechas de facturación, compra, instalación y falla.
-- Refacción: número de parte, referencia al modelo, respuestas **Sí/No** a 14 preguntas técnicas, mediciones de presiones/voltajes/temperaturas/amperaje y explicación del técnico. Se muestran detalles condicionales para kit, fuga y base; deben validarse condicionalmente en producción.
-- Evidencia: carga múltiple de documentos, fotos y videos más apartado de factura de mantenimiento. La selección de archivos es local en la demostración; no se suben a ningún servidor.
-- Entrega: modalidad única **Recolección sucursal Culiacán** (sin paquetería seleccionable).
-- Firmas de entrega: disponibles solo en expedientes con estado **Cerrada**, primero personal Celsius y después cliente. Son confirmaciones de simulación, no firmas electrónicas legalmente instrumentadas.
-
-### Pendientes antes de producción
-Se necesitan validaciones técnicas condicionales, fecha de reporte/folio generado desde backend, catálogos y vínculos por modelo, expediente con adjuntos privados, firma electrónica de entrega con trazabilidad, almacenamiento seguro y autorizaciones reales. No se deben introducir datos personales ni contraseñas reales en esta demo pública.
+Autenticación real, verificación telefónica por WhatsApp, backend y permisos, storage privado de evidencias, trazabilidad de estados y dictámenes, firma de entrega y exportación autorizada desde el servidor. Los accesos de evaluación deben retirarse antes de trabajar con datos de clientes.
