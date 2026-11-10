@@ -1,4 +1,4 @@
-# CELSIUS Garantías V11 — Ajustes de solicitud y reportes
+# CELSIUS Garantías V12 — Navegación compacta, validación técnica y reportes filtrados
 
 Versión navegable de evaluación con información simulada. **No usar para registros ni expedientes reales.**
 
@@ -26,3 +26,13 @@ Subir el contenido de este ZIP (no el ZIP como único archivo) a `estebanretan/w
 ## Pendientes de producción
 
 Autenticación real, verificación telefónica por WhatsApp, backend y permisos, storage privado de evidencias, trazabilidad de estados y dictámenes, firma de entrega y exportación autorizada desde el servidor. Los accesos de evaluación deben retirarse antes de trabajar con datos de clientes.
+
+## Cambios V12
+
+- Menú lateral más compacto sin cambiar la identidad de Celsius.
+- Factura y fechas del equipo siempre visibles, con folio y fechas obligatorios.
+- Evaluación del técnico: mínimo 50 palabras, contador en vivo y validación al enviar.
+- Registro de demostración: contraseña de exactamente 10 caracteres (por petición del cliente; en producción se recomienda admitir contraseñas más largas).
+- Dashboard operativo sin analítica ejecutiva ni exportaciones.
+- Inteligencia de garantías agrupa los gráficos, filtros mensuales/anuales y exportaciones PDF/PowerPoint/Excel. Disponible para Gestor y Administrador; Supervisión de gestor conserva su propio informe en Administrador.
+- Expedientes del periodo y estadísticas dependen del año y mes seleccionados. Los datos siguen siendo ficticios.
