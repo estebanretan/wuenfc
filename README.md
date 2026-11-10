@@ -1,3 +1,21 @@
+# CELSIUS Garantías — V13
+
+Versión de evaluación que conserva el portal V12 y ajusta la presentación inicial.
+
+## Cambios
+
+- Nuevo acceso más compacto y profesional, con identidad visual Celsius y dos botones verticales: Crear cuenta e Iniciar sesión.
+- Se conserva la zona de evaluación con Cliente, Gestor y Administrador **fuera** de la pantalla principal.
+- Se retira el campo de carga «Factura de servicio y mantenimiento (si se realizó)». Se mantiene la carga general de documentos, fotos y videos.
+- Deshabilitado el arrastre nativo de imágenes y la carga de archivos por arrastrar y soltar. **Seleccionar archivos** sigue disponible.
+- Etiqueta actualizada a «Contraseña (10 caracteres) *». La validación de exactamente diez caracteres permanece en esta demostración.
+
+## Ejecutar y publicar
+
+Abre `index.html` para revisión local o sube el contenido completo (no el ZIP) a la raíz de `main` en GitHub Pages. Mantén las carpetas `assets/`, `docs/` y `sql/`. No es necesario cambiar el DNS de `celsiusgarantias.com` para esta actualización.
+
+**Limitación:** se trata de una demo estática. No hay cuentas ni almacenamiento real; no publicar archivos sensibles ni utilizar los accesos de prueba para gestión de garantías reales.
+
 # CELSIUS Garantías V12 — Navegación compacta, validación técnica y reportes filtrados
 
 Versión navegable de evaluación con información simulada. **No usar para registros ni expedientes reales.**

@@ -85,3 +85,45 @@
 .periodSummary{background:#edf6fb;color:#25536d;border-radius:10px;margin:10px 0 16px;padding:12px 16px;font-size:12px;font-weight:700}
 @media(max-width:1150px){.shell{grid-template-columns:200px minmax(0,1fr)}}
 @media(max-width:790px){.sidebar{min-height:auto;padding:10px 12px;gap:8px}.sidebar .brandOfficial{min-height:auto;padding:4px}.sidebar .brandOfficial img{width:115px}.nav{flex-wrap:nowrap;overflow-x:auto}.nav button{min-height:38px;padding:8px 10px}.content{padding:20px 13px}.sidebarFoot{display:none}}
+
+
+/* V13 · Acceso compacto y editorial. Diseño original Celsius preservado en el portal interno. */
+.publicOuter{padding:clamp(16px,3vw,42px) 18px;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.publicInner{width:min(1090px,100%)}
+.auth.authRefined{grid-template-columns:1fr .96fr;max-width:none;min-height:560px;border-radius:24px;box-shadow:0 26px 74px rgba(0,16,34,.34)}
+.authHero.authHeroRefined{padding:30px 36px 26px;background:radial-gradient(circle at 90% 15%,rgba(62,170,210,.24),transparent 36%),linear-gradient(155deg,#0b354f,#0e5477 65%,#08334d);gap:18px;min-height:560px}
+.heroBrand{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.2)}
+.heroBrand .brandOfficial{width:154px;flex:0 0 auto}
+.authHero .heroBrand .brandOfficial img{width:100%;margin:0;max-width:100%}
+.heroBrandCaption{color:#bedce9;font-size:9px;font-weight:800;letter-spacing:.19em;text-align:right}
+.heroStatement{margin:2px 0 0}
+.heroEyebrow{display:inline-flex;align-items:center;gap:8px;color:#bde7fa;font-size:10px;font-weight:800;letter-spacing:.13em}
+.heroDot{width:7px;height:7px;border-radius:50%;background:#73ccec;box-shadow:0 0 0 4px rgba(115,204,236,.14)}
+.authHero .heroStatement h1{font-size:clamp(31px,3vw,43px);letter-spacing:-.055em;line-height:1.13;margin:16px 0 12px}
+.heroStatement h1 span{color:#94d8f1}
+.authHero .heroStatement p{font-size:13px;line-height:1.65;max-width:400px;margin:0;color:#d4e7f0}
+.heroSteps{display:grid;gap:8px;margin-top:24px}
+.heroStep{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:rgba(255,255,255,.07)}
+.heroStepIcon{width:33px;height:33px;display:grid;place-items:center;border-radius:10px;background:rgba(132,211,242,.16);color:#a1e5ff;font-weight:800;font-size:12px;flex:0 0 auto}
+.heroStep strong{font-size:12px;display:block;color:#fff}
+.heroStep small{font-size:11px;display:block;margin-top:3px;line-height:1.25;color:#d0e1eb}
+.heroFooter{display:flex;gap:9px;align-items:center;color:#bad6e6;letter-spacing:.14em;font-size:9px;font-weight:800}
+.heroFooterMark{width:22px;height:2px;background:#70cce8}
+.authBox.authBoxRefined{display:flex;flex-direction:column;justify-content:center;padding:32px clamp(28px,3.4vw,46px);max-height:none;overflow:visible;background:linear-gradient(165deg,#fff 65%,#f7fbfe)}
+.authBoxTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.authWelcomeTag{color:#3286a8;letter-spacing:.15em;font-size:10px;font-weight:800}
+.authHeaderIcon{height:34px;width:34px;display:grid;place-items:center;border-radius:11px;background:#e7f4f9;color:#1183ad;font-weight:900}
+.authBoxRefined h1{font-size:clamp(25px,2.5vw,32px);margin-bottom:7px}
+.authLead{color:#6a8191;line-height:1.5;margin-bottom:12px;font-size:13px}
+.authFormZone{width:100%}
+.authBoxRefined .authChoiceButtons{gap:12px;margin:12px 0 0}
+.authBoxRefined .authChoiceButtons button{min-height:58px;box-shadow:0 4px 10px rgba(7,73,108,.08);font-size:14px}
+.authBoxRefined .authChoiceButtons .secondary{border:1px solid #bdd6e4;background:#f6fbfe}
+.authBoxRefined .authChoiceButtons button:focus-visible,.authBoxRefined .authTabs button:focus-visible{outline:3px solid #61bbe2;outline-offset:2px}
+.authTrust{display:flex;gap:10px;align-items:center;color:#627b8b;font-size:12px;margin-top:24px;padding:13px 12px;border-radius:11px;background:#edf6fa}
+.authTrust>span:first-child{font-size:19px;color:#1382a8}
+.authBottom{border-top:1px solid #e4edf2;display:flex;justify-content:space-between;gap:10px;margin-top:28px;padding-top:17px;font-size:10px;font-weight:800;letter-spacing:.06em;color:#91a3af}
+.authRefined img, .brandOfficial img{-webkit-user-drag:none;user-select:none}
+.upload{cursor:default}.upload::after{content:'Selecciona los archivos con el botón del dispositivo';display:block;margin-top:7px;font-size:11px;color:#667f91}
+@media(max-width:790px){.publicOuter{padding:12px}.auth.authRefined{display:flex;flex-direction:column;min-height:0;border-radius:19px}.authHero.authHeroRefined{min-height:0;padding:23px;gap:14px}.heroBrand .brandOfficial{width:120px}.heroBrandCaption{font-size:8px}.authHero .heroStatement h1{font-size:30px;margin:12px 0 9px}.heroSteps{grid-template-columns:1fr;gap:6px;margin-top:16px}.heroStep{padding:8px 10px}.heroStep small{font-size:10px}.heroFooter{display:none}.authBox.authBoxRefined{padding:25px 22px}.authBottom{margin-top:20px}}
+@media(max-width:440px){.authHero.authHeroRefined{padding:20px}.heroBrandCaption{font-size:7px}.heroBrand .brandOfficial{width:108px}.authBox.authBoxRefined{padding:24px 18px}.authHero .heroStatement p{font-size:12px}.authRefined .authTabs{gap:4px}.authRefined .authTabs button{font-size:12px;padding:10px 6px}}
