@@ -1,56 +1,40 @@
-# CELSIUS Garantías — V13
+# CELSIUS Garantías — V14 · Inteligencia interactiva
 
-Versión de evaluación que conserva el portal V12 y ajusta la presentación inicial.
+Versión de **evaluación**, construida sobre la V13. Mantiene los tres accesos de prueba y la imagen corporativa oficial; no incluye backend ni acceso real a datos.
 
-## Cambios
+## Novedades
 
-- Nuevo acceso más compacto y profesional, con identidad visual Celsius y dos botones verticales: Crear cuenta e Iniciar sesión.
-- Se conserva la zona de evaluación con Cliente, Gestor y Administrador **fuera** de la pantalla principal.
-- Se retira el campo de carga «Factura de servicio y mantenimiento (si se realizó)». Se mantiene la carga general de documentos, fotos y videos.
-- Deshabilitado el arrastre nativo de imágenes y la carga de archivos por arrastrar y soltar. **Seleccionar archivos** sigue disponible.
-- Etiqueta actualizada a «Contraseña (10 caracteres) *». La validación de exactamente diez caracteres permanece en esta demostración.
+- **Acceso minimalista:** «La garantía, más sencilla», «Todo el seguimiento. En un solo lugar», introducción breve, logotipo oficial y botones verticales Crear cuenta/Iniciar sesión. La etiqueta CELSIUS® permanece en su ubicación anterior, dentro del panel blanco, como se solicitó.
+- **Bandeja de garantías:** filtros combinables por búsqueda, estado, año y mes, con opción **Todos**, paginación de 20 en 20 y total correspondiente al filtro.
+- **Inteligencia de garantías:** gráficos de columna, barras y anillo que permiten filtrar el resto de las visualizaciones al seleccionar categorías. Selecciones combinables (marca, estado, región, modelo, gestor, mes y duración), etiquetas para retirarlas y botón de limpiar. Se recalculan KPIs, interpretación y tabla de expedientes.
+- **Supervisión de gestor:** conserva año, mes y gestor, junto con filtros cruzados y las mismas exportaciones.
+- **Reportes PDF, PowerPoint y Excel:** toman el periodo y las selecciones activas. PDF genera una portada y secciones interpretativas/gráficas/tablas en una vista de impresión de informe (Guardar como PDF). PowerPoint incluye portada, tarjetas KPI, página de interpretación, distribuciones y detalle paginado. Excel incluye resumen, lectura ejecutiva, garantías, refacciones y hojas analíticas. Las bibliotecas PowerPoint y Excel requieren conexión a Internet.
 
-## Ejecutar y publicar
+## Instrucciones de uso
 
-Abre `index.html` para revisión local o sube el contenido completo (no el ZIP) a la raíz de `main` en GitHub Pages. Mantén las carpetas `assets/`, `docs/` y `sql/`. No es necesario cambiar el DNS de `celsiusgarantias.com` para esta actualización.
+1. Abre `index.html` o publica los archivos en GitHub Pages.
+2. Utiliza los accesos de evaluación **Gestor** o **Administrador**.
+3. Ve a **Inteligencia de garantías** y selecciona año/mes. Pulsa una barra, columna o una categoría del gráfico de anillo para aplicar un filtro. Puedes combinar dimensiones.
+4. Pulsa una etiqueta activa para retirarla o **Limpiar selección**.
+5. Descarga PDF, PowerPoint o Excel. El contenido se basa en el conjunto actualmente filtrado.
+6. En Administrador, entra a **Supervisión de gestor** para filtrar también por responsable.
 
-**Limitación:** se trata de una demo estática. No hay cuentas ni almacenamiento real; no publicar archivos sensibles ni utilizar los accesos de prueba para gestión de garantías reales.
+## Publicación
 
-# CELSIUS Garantías V12 — Navegación compacta, validación técnica y reportes filtrados
+Repositorio: `https://github.com/estebanretan/wuenfc`. Sube el **contenido descomprimido** a la raíz de la rama `main`, manteniendo `assets/`, `docs/`, `sql/` y `index.html`. No cambies el DNS de Squarespace.
 
-Versión navegable de evaluación con información simulada. **No usar para registros ni expedientes reales.**
+## Limitaciones importantes
 
-## Modificaciones principales
+- Los 35 expedientes detallados de ejemplo pertenecen a 2026. Aunque el selector permita años anteriores, en esos periodos no hay registros detallados disponibles; no se mezclan con las series ilustrativas de años previos.
+- El panel BI implementa **filtros cruzados y selección de categorías en la demo**; no es Power BI embebido y no incluye aún modelado semántico, autorización multiusuario, publicación de datasets, consultas a la base real ni drill-through a múltiples niveles.
+- **PDF** depende de la función de impresión del navegador («Guardar como PDF»); no genera un archivo automáticamente desde servidor. Excel y PowerPoint usan librerías web bajo demanda; necesitan conexión y permiso para descargas.
+- Resúmenes y recomendaciones se generan mediante reglas descriptivas sobre los datos filtrados, no por análisis estadístico inferencial ni IA conectada.
+- No se hizo integración con Supabase, Cloud Run, WhatsApp ni correo. Todos los datos son **ficticios** y los accesos de prueba deben retirarse antes del lanzamiento público con información real.
 
-- Menú de acceso con botones verticales **Crear cuenta** y **Iniciar sesión**; accesos de evaluación por fuera del diseño principal.
-- **Una solicitud = una refacción**. No existe botón para agregar otra ni guardar borrador.
-- Sección 02: Marca, modelos de condensadora, evaporadora y compresor (opcionales), serie obligatoria; identificación de pieza/número de parte; fechas y factura plegables.
-- Sección 03: exclusivamente preguntas técnicas Sí/No, mediciones numéricas y diagnóstico del técnico, sin duplicar los datos de pieza.
-- Modalidad: **recolección en sucursal** seleccionable entre Culiacán, Mazatlán, Hermosillo y Mexicali. No existe opción de paquetería.
-- Administrador: pestaña **Centro de reportes**, independiente del Dashboard operativo, con filtros año/mes, gráficos, tablas e indicadores.
-- Supervisión de gestor: tablero propio con filtro por gestor/año/mes, gráficas e información detallada.
-- Exportaciones sobre el periodo **actualmente seleccionado**: Excel multipestaña, PowerPoint con métricas y visualizaciones de categorías y PDF mediante impresión con gráficos.
+## Archivos principales
 
-## Precisión de las exportaciones
-
-Excel utiliza SheetJS por CDN y exporta las hojas Resumen, Garantías, Refacciones, Estados, Marcas, Regiones, Modelos, Gestores, Meses, Tiempos, Cuentas, Agrupaciones y Colaboradores. PowerPoint usa PptxGenJS por CDN y construye diapositivas de resumen, barras de las distribuciones y expedientes. PDF abre una ventana de informe filtrado, lista para imprimir/guardar como PDF. **Los filtros deben elegirse en la vista antes de descargar.** Los datos de 2024–2025 de los gráficos históricos del dashboard operativo son ilustrativos; las solicitudes detalladas disponibles corresponden al año 2026.
-
-Las bibliotecas de Excel y PowerPoint requieren conexión de internet. Los reportes no son copias de respaldo oficiales ni certifican datos de producción.
-
-## GitHub Pages
-
-Subir el contenido de este ZIP (no el ZIP como único archivo) a `estebanretan/wuenfc` en la rama principal, conservando `index.html`, `assets/`, `sql/` y `docs/`. No alterar el dominio/DNS ya configurados.
-
-## Pendientes de producción
-
-Autenticación real, verificación telefónica por WhatsApp, backend y permisos, storage privado de evidencias, trazabilidad de estados y dictámenes, firma de entrega y exportación autorizada desde el servidor. Los accesos de evaluación deben retirarse antes de trabajar con datos de clientes.
-
-## Cambios V12
-
-- Menú lateral más compacto sin cambiar la identidad de Celsius.
-- Factura y fechas del equipo siempre visibles, con folio y fechas obligatorios.
-- Evaluación del técnico: mínimo 50 palabras, contador en vivo y validación al enviar.
-- Registro de demostración: contraseña de exactamente 10 caracteres (por petición del cliente; en producción se recomienda admitir contraseñas más largas).
-- Dashboard operativo sin analítica ejecutiva ni exportaciones.
-- Inteligencia de garantías agrupa los gráficos, filtros mensuales/anuales y exportaciones PDF/PowerPoint/Excel. Disponible para Gestor y Administrador; Supervisión de gestor conserva su propio informe en Administrador.
-- Expedientes del periodo y estadísticas dependen del año y mes seleccionados. Los datos siguen siendo ficticios.
+- `index.html`: interfaz web
+- `assets/styles.css`: apariencia y responsive
+- `assets/app.js`: pantallas, filtros cruzados, dataset ficticio, exportaciones
+- `assets/logo-celsius-oficial.png`: logotipo proporcionado
+- `docs/`, `sql/`: documentos y esquemas preliminares del proyecto
