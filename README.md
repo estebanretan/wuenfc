@@ -1,40 +1,58 @@
-# CELSIUS Garantías — V14 · Inteligencia interactiva
+## CELSIUS V19 — Informes ejecutivos y navegación
 
-Versión de **evaluación**, construida sobre la V13. Mantiene los tres accesos de prueba y la imagen corporativa oficial; no incluye backend ni acceso real a datos.
+- Retiradas las frases solicitadas del formulario y del pie del informe PDF.
+- Nuevos iconos diferenciados para Menú, Dashboard, Expedientes, Clientes y Colaboradores.
+- PowerPoint compacto: portada con KPIs, evolución/estados, distribución transversal y detalle de expedientes (32 por diapositiva).
+- El PDF mantiene su formato empresarial y ya no utiliza la frase solicitada.
+- Los accesos, folios, usuarios y datos siguen siendo de prueba; no usar para producción.
 
-## Novedades
+# CELSIUS Garantías V18 — Supervisión y exportaciones
 
-- **Acceso minimalista:** «La garantía, más sencilla», «Todo el seguimiento. En un solo lugar», introducción breve, logotipo oficial y botones verticales Crear cuenta/Iniciar sesión. La etiqueta CELSIUS® permanece en su ubicación anterior, dentro del panel blanco, como se solicitó.
-- **Bandeja de garantías:** filtros combinables por búsqueda, estado, año y mes, con opción **Todos**, paginación de 20 en 20 y total correspondiente al filtro.
-- **Inteligencia de garantías:** gráficos de columna, barras y anillo que permiten filtrar el resto de las visualizaciones al seleccionar categorías. Selecciones combinables (marca, estado, región, modelo, gestor, mes y duración), etiquetas para retirarlas y botón de limpiar. Se recalculan KPIs, interpretación y tabla de expedientes.
-- **Supervisión de gestor:** conserva año, mes y gestor, junto con filtros cruzados y las mismas exportaciones.
-- **Reportes PDF, PowerPoint y Excel:** toman el periodo y las selecciones activas. PDF genera una portada y secciones interpretativas/gráficas/tablas en una vista de impresión de informe (Guardar como PDF). PowerPoint incluye portada, tarjetas KPI, página de interpretación, distribuciones y detalle paginado. Excel incluye resumen, lectura ejecutiva, garantías, refacciones y hojas analíticas. Las bibliotecas PowerPoint y Excel requieren conexión a Internet.
+Versión de evaluación con datos ficticios. Sin autenticación real ni auditoría inmutable.
 
-## Instrucciones de uso
-
-1. Abre `index.html` o publica los archivos en GitHub Pages.
-2. Utiliza los accesos de evaluación **Gestor** o **Administrador**.
-3. Ve a **Inteligencia de garantías** y selecciona año/mes. Pulsa una barra, columna o una categoría del gráfico de anillo para aplicar un filtro. Puedes combinar dimensiones.
-4. Pulsa una etiqueta activa para retirarla o **Limpiar selección**.
-5. Descarga PDF, PowerPoint o Excel. El contenido se basa en el conjunto actualmente filtrado.
-6. En Administrador, entra a **Supervisión de gestor** para filtrar también por responsable.
+## Cambios
+- Eliminado Comunicaciones del menú cliente y el botón flotante de ayuda de toda la plataforma.
+- Navegación: **Clientes** en lugar de Cuentas y empresas; **Supervisión** en lugar de Gestores.
+- Costo interno oculto de la vista de expediente.
+- Invitación corporativa limitada a **Gestor** y **Administrador** (interfaz de prueba).
+- Supervisión exclusiva del administrador, filtros visuales uniformes y exportaciones **PDF, PPTX y XLSX** del periodo seleccionado.
+- Nuevo gráfico de tiempos en Dashboard.
+- PowerPoint generado desde una biblioteca incluida en `assets/vendor/pptxgen.bundle.js`, no descargada desde un CDN.
+- Excel `.xlsx` generado localmente mediante código OOXML en `assets/vendor/celsius-xlsx.js`, sin depender de servicios externos.
+- Portada del PDF con el logo y encabezado más próximos.
 
 ## Publicación
+Subir todos los archivos a la raíz del repositorio GitHub Pages, conservando `assets/vendor`. No mover ni modificar registros DNS.
 
-Repositorio: `https://github.com/estebanretan/wuenfc`. Sube el **contenido descomprimido** a la raíz de la rama `main`, manteniendo `assets/`, `docs/`, `sql/` y `index.html`. No cambies el DNS de Squarespace.
+## Seguridad
+Los tres accesos son simulados. La supervisión utiliza eventos ficticios almacenados temporalmente en el navegador; para producción se necesita un backend con control de roles y auditoría inmutable. Los botones de descarga solo procesan datos ficticios o cambios de la sesión.
 
-## Limitaciones importantes
 
-- Los 35 expedientes detallados de ejemplo pertenecen a 2026. Aunque el selector permita años anteriores, en esos periodos no hay registros detallados disponibles; no se mezclan con las series ilustrativas de años previos.
-- El panel BI implementa **filtros cruzados y selección de categorías en la demo**; no es Power BI embebido y no incluye aún modelado semántico, autorización multiusuario, publicación de datasets, consultas a la base real ni drill-through a múltiples niveles.
-- **PDF** depende de la función de impresión del navegador («Guardar como PDF»); no genera un archivo automáticamente desde servidor. Excel y PowerPoint usan librerías web bajo demanda; necesitan conexión y permiso para descargas.
-- Resúmenes y recomendaciones se generan mediante reglas descriptivas sobre los datos filtrados, no por análisis estadístico inferencial ni IA conectada.
-- No se hizo integración con Supabase, Cloud Run, WhatsApp ni correo. Todos los datos son **ficticios** y los accesos de prueba deben retirarse antes del lanzamiento público con información real.
+## V20 — Gráficas PowerPoint y conformidad
+- Texto de confirmación: «Confirmo la solicitud y la veracidad de la información proporcionada.»
+- PowerPoint con gráficos nativos y editables: línea (tendencia), anillo (estados y regiones), barras (marcas y gestores), columnas (modelos y tiempos de resolución), además de portada, resumen y expedientes.
+- Los informes respetan los filtros del centro de inteligencia de garantías.
+- Los expedientes se agregan a las páginas de detalle sin eliminar filas.
 
-## Archivos principales
 
-- `index.html`: interfaz web
-- `assets/styles.css`: apariencia y responsive
-- `assets/app.js`: pantallas, filtros cruzados, dataset ficticio, exportaciones
-- `assets/logo-celsius-oficial.png`: logotipo proporcionado
-- `docs/`, `sql/`: documentos y esquemas preliminares del proyecto
+## V21 — acceso a perfiles de evaluación
+
+Los accesos Cliente, Gestor y Administrador ahora solicitan una contraseña antes de abrir el perfil. La comprobación se realiza **únicamente en el navegador** mediante una huella SHA-256 del texto indicado. No hay autenticación del servidor: al estar publicado el código JavaScript, usuarios técnicos pueden omitir el control. No utilices este mecanismo para proteger información real, expedientes privados o privilegios corporativos. Para producción se requiere autenticación en backend y control de roles verificable en cada petición.
+
+Los iconos de Dashboard, Clientes y Colaboradores se muestran sin colores particulares, siguiendo el color neutro de la navegación.
+
+
+## V22 — Expedientes y tarjeta Cerradas
+- En **Expedientes** (Gestor y Administrador) aparecen botones PDF, PowerPoint y Excel. Sus datos proceden del filtro instantáneo de texto, estatus, año y mes, en todas las páginas del resultado (no solo las primeras 20 filas).
+- El PDF incluye resumen, KPIs, gráficas y relación de expedientes; utiliza Guardar como PDF en el cuadro de impresión del navegador.
+- El Excel genera hojas de resumen, garantías, refacciones y desgloses; el PowerPoint genera gráficas nativas editables y expedientes.
+- Corregido el espaciado/altura de los números KPI, incluido **Cerradas**, para evitar cortes de glifos.
+- Estas herramientas siguen utilizando información ficticia del prototipo.
+
+
+## V23 — Catálogo de refacciones
+- Nuevo menú **Catálogo de refacciones** solo para Gestor y Administrador: consulta por modelo o por refacción y pestaña **Administrar catálogos** para cargar, reemplazar, actualizar, exportar y eliminar catálogos por marca (con registro en Supervisión).
+- Incluye el catálogo base YORK (180 modelos, 2,856 refacciones) en `assets/catalog-data-york.js`.
+- **Nueva garantía**: selección guiada Marca → Modelo → Unidad → Refacción. Al terminar, los datos del equipo quedan en una ficha fija no editable; se cambian con *Cambiar refacción* / *Cambiar equipo*. Si el equipo no está en el catálogo, captura manual.
+- Excel sin internet: lectura `.xlsx`/`.csv` propia y escritura con `celsius-xlsx.js`. Detalle en `docs/CATALOGO.md`.
+- Los catálogos cargados se guardan en el navegador (prototipo); ver limitaciones en `docs/CATALOGO.md`.
